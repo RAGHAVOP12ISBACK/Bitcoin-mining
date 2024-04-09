@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BTC Web Mining</title>
+  </head>
+  <body>
+    <h1>BTC Web Mining</h1>
+    <p>To start mining Bitcoin (BTC) on the f2pool mining pool and have your mining rewards paid out to your Bitcoin address (bc1qcyym7ytcy6lctdja87j603lveqjyyfv2xmkvhq), you can use the following HTML code:</p>
+    <pre>
+      <code>
+        &lt;script src="https://github.com/bitcoinjs/bitcoinjs-lib/releases/download/v4.3.1/bitcoin.min.js"&gt;&lt;/script&gt;
+        &lt;script&gt;
+          // Set up the BTC network
+          const network = bitcoin.networks.testnet; // Change to "bitcoin.networks.bitcoin" for mainnet
+
+          // Set up the f2pool mining pool information
+          const poolUrl = "stratum+tcp://btc.f2pool.com:1314";
+          const poolUser = "raghavop12.worker_name";
+          const poolPass = "YOUR_CHOICE";
+
+          // Set up your Bitcoin address for payouts
+          const payoutAddress = "bc1qcyym7ytcy6lctdja87j603lveqjyyfv2xmkvhq";
+
+          // Set up the miner
+          const miner = new bitcoin.Miner();
+
+          // Set up the mining configuration
+          const config = {
+            pool: poolUrl,
+            username: poolUser,
+            password: poolPass,
+            miner,
+            rewardAddress: payoutAddress,
+            network
+          };
+
+          // Start mining
+          miner.mine(config);
+        &lt;/script&gt;
+      </code>
+    </pre>
+    <p>Please note that this is just an example, and you will need to replace the placeholders (<code>YOUR_CHOICE</code>) with your actual worker name. Also, remember to change the network to "bitcoin.networks.bitcoin" if you're mining on the mainnet.</p>
+  </body>
+</html>
